@@ -1,3 +1,3 @@
 # brindle-wilder-2
-Phenix
-~Current Version:1.1~
+Wilder 2
+~Current Version:1.2~
