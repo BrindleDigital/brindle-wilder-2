@@ -6,7 +6,7 @@
  Author URI:   https://brindledigital.com/
  GitHub Theme URI: https://github.com/BrindleDigital/brindle-wilder-2
  GitHub Branch:    master
- Version:      1.0
+ Version:      1.1
  Template:       generatepress
  Date:            18-12-2025
  Requires at least: 5.0
@@ -24,7 +24,7 @@
    General
    ========================================================================== */
 :root{
-	--header-height:;
+	--header-height:100px;
 	--scrol-header-height:;
 	--pd-left: calc((100vw - var(--gb-container-width)) / 2);
     --pd-right: calc((100vw - var(--gb-container-width)) / 2);
