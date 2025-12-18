@@ -1,0 +1,33 @@
+/*
+ Theme Name:   Brindle Wilder V2
+ Theme URI:    http://childtheme-generator.com/
+ Description:  Brindle Wilder V2 Theme
+ Author:       Brindle Digital
+ Author URI:   https://brindledigital.com/
+ GitHub Theme URI: https://github.com/BrindleDigital/brindle-wilder-2
+ GitHub Branch:    master
+ Version:      1.0
+ Template:       generatepress
+ Date:            18-12-2025
+ Requires at least: 5.0
+ Tested up to: 5.7
+ Requires PHP: 7.0
+ License: GPL-2.0-or-later
+ License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:     brindle-wilder-2
+*/
+
+
+
+
+/* ==========================================================================
+   General
+   ========================================================================== */
+:root{
+	--header-height:;
+	--scrol-header-height:;
+	--pd-left: calc((100vw - var(--gb-container-width)) / 2);
+    --pd-right: calc((100vw - var(--gb-container-width)) / 2);
+	 --wp-adminbar:32px;
+	--pd-left-2x:calc((100vw - 1280px) / 2);
+}
