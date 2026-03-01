@@ -39,7 +39,11 @@ jQuery(document).ready(function(){
 
 /* AOS  Animate*/
 jQuery(document).ready(function(){
-  AOS.init({disable: 'mobile'});
+  AOS.init({
+    disable: 'mobile',
+    delay: 600 // 300ms animation delay
+  });
+	
 });
 
 window.addEventListener('load', AOS.refresh);
@@ -93,7 +97,7 @@ jQuery(document).ready(function() {
       enabled: true,
       navigateByImgClick: true,
       preload: [0,1] ,// Will preload 0 - before current, and 1 after the current image
-		arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></button>',
+		arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"><div><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"></path></svg></div></button>',
     },
     image: {
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',

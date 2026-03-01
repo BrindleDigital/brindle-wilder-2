@@ -7,7 +7,7 @@
  */
 
 // define a constant for the child theme version
-define( 'CHILD_THEME_VERSION', '1.3' );
+define( 'CHILD_THEME_VERSION', '1.4' );
 
 /*
 * Add custom css
@@ -76,6 +76,25 @@ function register_shortcodes()
   add_shortcode("show-menu", "show_menu_list");  
 }
 add_action("init", "register_shortcodes");
+
+add_action('wp_enqueue_scripts', function () {
+  if (!is_page('neighborhood')) return;
+
+  global $wp_scripts;
+  if (empty($wp_scripts) || empty($wp_scripts->registered)) return;
+
+  foreach ($wp_scripts->registered as $handle => $script) {
+    $src = isset($script->src) ? $script->src : '';
+    if (stripos($handle, 'rentfetch') !== false || stripos($src, 'rentfetch') !== false) {
+      wp_dequeue_script($handle);
+      wp_deregister_script($handle);
+    }
+  }
+}, 999);
+
+if ( ! wp_script_is('na-google-maps-js', 'enqueued') ) {
+  // enqueue it once
+}
 
 require 'vendor/plugin-update-checker/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
