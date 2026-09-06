@@ -7,7 +7,7 @@
  */
 
 // define a constant for the child theme version
-define( 'CHILD_THEME_VERSION', '1.6' );
+define( 'CHILD_THEME_VERSION', '1.7' );
 
 /*
 * Add custom css
@@ -95,14 +95,14 @@ if ( ! wp_script_is('na-google-maps-js', 'enqueued') ) {
   // enqueue it once
 }
 
-require 'vendor/plugin-update-checker/plugin-update-checker.php';
+require_once get_stylesheet_directory() . '/vendor/plugin-update-checker/plugin-update-checker.php';
+
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://github.com/BrindleDigital/brindle-wilder-2/',
-    __FILE__,
-    'brindle-wilder-2'
+    'https://github.com/BrindleDigital/brindle-wilder-2/',
+    get_stylesheet_directory(),
+    'brindle-wilder-2'
 );
 
-//Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('master');
