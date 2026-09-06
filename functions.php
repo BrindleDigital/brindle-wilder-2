@@ -7,7 +7,7 @@
  */
 
 // define a constant for the child theme version
-define( 'CHILD_THEME_VERSION', '1.5' );
+define( 'CHILD_THEME_VERSION', '1.6' );
 
 /*
 * Add custom css
