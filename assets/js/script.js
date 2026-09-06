@@ -49,25 +49,7 @@ jQuery(document).ready(function(){
 window.addEventListener('load', AOS.refresh);
 
 
-/* slick*/
-
-jQuery(document).ready(function(){
-    jQuery('.hp-banner-slider').slick({
-     	slidesToShow: 1,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: '0px',
-        speed: 1000,           
-        autoplay: false,
-        autoplaySpeed: 4000,    
-        arrows: true,
-        dots: false,
-        pauseOnHover: true,
-		nextArrow: '.custom-next-btn',
-		prevArrow: '.custom-prev-btn',
-    });
-});
-
+/*  Testimonial slider slick*/
 jQuery(document).ready(function(){
     jQuery('.testimonial-slider').slick({
      	slidesToShow: 1,
@@ -107,4 +89,82 @@ jQuery(document).ready(function() {
     }
   });
 });
-	
+
+
+/* Slick - HP Banner */
+
+jQuery(document).ready(function ($) {
+
+    /*
+     * Remove H1 semantics from Slick cloned slides.
+     * This function only affects .slick-cloned slides.
+     */
+    function demoteClonedHeadings(slider) {
+
+        $(slider).find('.slick-cloned h1').each(function () {
+
+            var $h1 = $(this);
+
+            // Don't process the same element twice.
+            if ($h1.data('h1-demoted')) {
+                return;
+            }
+
+            var $replacement = $('<div>');
+
+            // Preserve all attributes/classes.
+            $.each(this.attributes, function () {
+                $replacement.attr(this.name, this.value);
+            });
+
+            // Preserve the content.
+            $replacement.html($h1.html());
+
+            // Mark as processed.
+            $replacement.attr('data-h1-demoted', 'true');
+
+            $h1.replaceWith($replacement);
+        });
+    }
+
+
+    /*
+     * IMPORTANT:
+     * Bind Slick events BEFORE calling .slick()
+     * so the first initialization is caught.
+     */
+    $('.hp-banner-slider')
+        .on('init reInit', function (event, slick) {
+            demoteClonedHeadings(this);
+        })
+        .on('breakpoint', function () {
+
+            // Allow Slick to finish rebuilding/repositioning first.
+            var slider = this;
+
+            requestAnimationFrame(function () {
+                demoteClonedHeadings(slider);
+            });
+
+        });
+
+
+    /*
+     * Initialize Slick ONCE.
+     */
+    $('.hp-banner-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '0px',
+        speed: 1000,
+        autoplay: false,
+        autoplaySpeed: 4000,
+        arrows: true,
+        dots: false,
+        pauseOnHover: true,
+        nextArrow: '.custom-next-btn',
+        prevArrow: '.custom-prev-btn'
+    });
+
+});

@@ -7,7 +7,7 @@
  */
 
 // define a constant for the child theme version
-define( 'CHILD_THEME_VERSION', '1.4' );
+define( 'CHILD_THEME_VERSION', '1.5' );
 
 /*
 * Add custom css
@@ -15,7 +15,6 @@ define( 'CHILD_THEME_VERSION', '1.4' );
 add_action("wp_enqueue_scripts", "brindle_enqueue_styles");
 function brindle_enqueue_styles()
 {
-  //wp_enqueue_style("parent-style", get_template_directory_uri() . "/style.css");
 	  wp_enqueue_style("font-awesome",   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css",array(), CHILD_THEME_VERSION);  
   wp_enqueue_style("aos-style",   "https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css",array(), CHILD_THEME_VERSION);  
   wp_enqueue_style("slick-style",   "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css",array(), CHILD_THEME_VERSION);
