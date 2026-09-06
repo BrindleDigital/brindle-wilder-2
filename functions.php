@@ -7,7 +7,7 @@
  */
 
 // define a constant for the child theme version
-define( 'CHILD_THEME_VERSION', '1.7' );
+define( 'CHILD_THEME_VERSION', '1.8' );
 
 /*
 * Add custom css
@@ -100,9 +100,9 @@ require_once get_stylesheet_directory() . '/vendor/plugin-update-checker/plugin-
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-    'https://github.com/BrindleDigital/brindle-wilder-2/',
-    get_stylesheet_directory(),
-    'brindle-wilder-2'
+'https://github.com/BrindleDigital/brindle-wilder-2/',
+get_stylesheet_directory(),
+'brindle-wilder-2'
 );
 
 $myUpdateChecker->setBranch('master');
