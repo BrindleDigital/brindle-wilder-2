@@ -10,7 +10,11 @@ global $post;
   <?php if (is_singular('portfolio')) {?>
     <li><a href="<?php echo get_permalink(21); ?>"><?php echo get_the_title(21); ?></a></li>
   <?php }?>
-  <li><?php echo get_the_title(); ?></li>
+  <?php if ( (is_home('')) || (is_archive()) ) {?>
+    <li>Blog</li>
+  <?php }else {?>
+  	<li><?php echo get_the_title(); ?></li>
+	<?php }?>
 </ul>
 
 <?php

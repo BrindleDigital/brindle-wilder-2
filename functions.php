@@ -7,7 +7,7 @@
  */
 
 // define a constant for the child theme version
-define( 'CHILD_THEME_VERSION', '1.8' );
+define( 'CHILD_THEME_VERSION', '1.9' );
 
 /*
 * Add custom css
@@ -38,7 +38,14 @@ add_action("wp_enqueue_scripts", "brindle_enqueue_scripts");
 
 add_theme_support("editor-styles");
 
+add_filter( 'body_class', function( $classes ) {
 
+    if ( is_home() || is_category() || is_archive() || is_singular( 'post' ) || is_singular( 'properties' ) || is_singular( 'floorplans' ) ) {
+        $classes[] = 'full-width-content';
+    }
+
+    return $classes;
+});
 
 
 

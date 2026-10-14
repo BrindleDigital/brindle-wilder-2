@@ -6,9 +6,9 @@
  Author URI:   https://brindledigital.com/
  GitHub Theme URI: https://github.com/BrindleDigital/brindle-wilder-2
  GitHub Branch:    master
- Version:      1.8
+ Version:      1.9
  Template:       generatepress
- Date:            06-09-2026
+ Date:            14-10-2026
  Requires at least: 5.0
  Tested up to: 5.7
  Requires PHP: 7.0
@@ -937,9 +937,12 @@ background-attachment:scroll!important;}
 	 }
 	 
 @media (max-width: 575.98px) {
-		.header-btn .wp-block-button .wp-block-button__link {
-  padding: 14px 10px;
-}
+	.header-btn .wp-block-button .wp-block-button__link {
+  		padding: 14px 10px;
+		min-height: 65px;
+		display: flex;
+		align-items: center;
+	}
 }
 @media (max-width: 375.98px) {
 	.header-btn .wp-block-button .wp-block-button__link {
@@ -992,4 +995,107 @@ body.single-floorplans .single-floorplans-container-outer {
     height: 100%;
     position: absolute;
     inset: 0;
+}
+.vp-filter__style-default .vp-filter__item.vp-filter__item-active>* {
+    background: var(--secondary-color) !important;
+}
+/*Blog Overview Start*/
+.blog-grid{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	flex:0 0 auto;
+}
+.blog-grid figure {
+	aspect-ratio: 11/11;
+	overflow: hidden;
+	display: block;
+	position:relative;
+}
+
+.blog-grid figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.blog-grid a{
+	text-decoration: none;   
+}
+/*Blog Overview End*/
+/*Blog Single*/
+body.single .blog-single-outer{
+	padding-top: 140px;
+	padding-bottom: 60px;
+	padding-left:30px;
+	padding-right:30px;
+}
+body.single header{
+    background-color: #fff!important;
+}
+body.single header .site-logo img {
+    filter: invert(1);
+}
+body.single header .slide-in-open .line {
+    filter: invert(0);
+}
+body.blog ul{
+	list-style: none !important;
+}
+/* Pagination Styles */
+.gb-query-loop-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.gb-query-loop-pagination .page-numbers,
+.gb-query-loop-pagination .gb-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    padding: 0 16px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    background: var(--secondary-color) !important;
+    color: var(--light-color) !important;
+    border: 1px solid var(--secondary-color) !important;
+    transition: all 0.25s ease;
+}
+.gb-query-loop-pagination a:hover {
+    background: var(--button-color) !important;
+    color: var(--light-color) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px);
+}
+.gb-query-loop-pagination .current,
+.gb-query-loop-pagination .gb-block-is-current {
+    background: var(--secondary-color) !important;
+    color: var(--light-color) !important;
+    border-color: var(--secondary-color) !important;
+    pointer-events: none;
+}
+.gb-query-loop-pagination .gb-button-text {
+    padding: 0 20px;
+}
+/* Blog Mobile */
+@media (max-width: 768px) {
+	.blog-grid {
+		width: 100%;
+	}
+    .gb-query-loop-pagination {
+        gap: 8px;
+    }
+    .gb-query-loop-pagination .page-numbers,
+    .gb-query-loop-pagination .gb-button {
+        width: 50px;
+        height: 50px;
+        font-size: 12px;
+    }
 }
